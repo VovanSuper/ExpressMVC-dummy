@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .panel.panel-default
+    .panel-heading
+      if users && users.lenght > 0
+        Users in database :
+      else
+        No users registered
+    .panel-body
+      table.table.table-bordered.table-hover.table-condensed
+        thead
+          tr.active
+            th #
+            th Name
+            th Email
+            th Registered
+            if user.fb_username
+              th Fb username
+            if user.fb_email
+              th Fb email
+        tbody
+          each user, i in users
+            tr
+              td 
+                span= i+1
+              td #{user.name}
+              td #{user.email}
+              td #{user.registeredAt}
+              if user.fb_username
+                td #{user.fb_username}
+              if user.fb_email
+                td #{user.fb_email}
+    .panel-footer
+      .row
+        .col-md-8.col-md-offset-2
+          a.btn.btn-success(type='button')

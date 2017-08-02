@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .panel.panel-primary
+    .panel-heading
+      Login to the site by entering Your Email and Password... or Using Facebook!
+    .panel-body
+      .container-fluid
+        .row
+          .col-md-8.col-md-offset-2.col-xs-12
+            form.form-horizontal(method='post', action='/auth/signup')
+              .form-group
+                label.control-label(for='username') Username: 
+                input.form-control(type='text', name='username', id='username', placeholder='input username')
+              .form-group
+                label.control-label(for='email') Email: 
+                input.form-control(type='email', name='email', id='email', placeholder='input email')
+              .form-group
+                label.control-label(for='password') Password: 
+                input.form-control(type='password', name='password', id='password', placeholder='input password')
+              .form-group
+                label.control-label(for='re_password') Retype password:
+                input.form-control(type='password', name='re_password', id='re_password', placeholder='reinput password')
+              .form-group
+                input.btn.btn-success(type='submit', value='Sign up')

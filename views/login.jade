@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .panel.panel-primary
+    .panel-heading Enter the site by entering Your Email and Password... or using Facebook!
+    .panel-body
+      .container-fluid
+        .row
+          .col-md-8.col-md-offset-2.col-xs-12
+            form.form-horizontal(method='post', action='/auth/login/local')
+              .form-group
+                label.control-label(for='email') Username : 
+                input.form-control(type='text', name='email', id='email', placeholder='input registration email')
+              .form-group
+                label.control-label(for='password') Password : 
+                input.form-control(type='password', name='password', id='password', placeholder='input password')
+              .form-group
+                input.btn.btn-primary(type='submit', value='Log in')
+        .panel-footer
+          .row
+            .col-md-4.col-md-offset-1.well
+              div.pull-left Log in with :
+              div.pull-right
+                a.btn.btn-primary(role='button', href='/auth/login/facebook') 
+                  i.fa.fa-facebook.fa-fw
+                  span FACEBOOK
+            .col-md-3.col-md-offset-1.well
+              div.pull-left Sign up
+              div.pull-right
+                a.btn.btn-success(role='button', href='/auth/signup') Sign Up
